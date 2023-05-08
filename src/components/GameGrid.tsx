@@ -7,11 +7,10 @@ import { Genre } from "../hooks/useGenres";
 import { GameQuery } from "../App";
 
 interface Props {
-gameQuery: GameQuery;
-
+  gameQuery: GameQuery;
 }
 
-const GameGrid = ({gameQuery}: Props) => {
+const GameGrid = ({ gameQuery }: Props) => {
   const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
@@ -26,7 +25,7 @@ const GameGrid = ({gameQuery}: Props) => {
         {isLoading &&
           skeletons.map((skeleton) => (
             <GameCardContainer key={skeleton}>
-              <GameCardSkeleton  />
+              <GameCardSkeleton />
             </GameCardContainer>
           ))}
         {data.map((game) => (
